@@ -1,0 +1,45 @@
+body {
+    background-color: darkgoldenrod;
+}
+
+.calc_parent {
+    height: 600px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.calc_child {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 400px;
+    background-color: darkgray;
+}
+
+.display {
+    font-size: 3rem;
+    height: 30%;
+    display: block;
+    text-align: right;
+}
+
+.calc_child .buttons {
+    height: 66%;
+    display: grid;
+    gap: 1rem;
+    margin: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.buttons button {
+    border-radius: 40px;
+    background-color: rgb(70, 70, 70);
+}
+
+button.equals {
+    grid-column: 3 / 5;
+}
+
+button.clear {
+    grid-column: 1 / 3;
+}
+
