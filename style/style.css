@@ -3,39 +3,61 @@ body {
 }
 
 .calc_parent {
-    height: 600px;
-    width: 400px;
+    height: 800px;
+    width: 500px;
     margin: 0 auto;
 }
 
 .calc_child {
-    height: 100%;
-    margin: 0 auto;
-    max-width: 400px;
     background-color: darkgray;
+    height: 100%;
+    margin: 1rem;
 }
 
 .display {
-    font-size: 3rem;
-    height: 30%;
-    display: block;
+    font-size: 4rem;
+    display: grid;
     text-align: right;
+    border: 1rem solid red;
 }
 
-.calc_child .buttons {
-    height: 66%;
+.calc_result {
+    background-color: black;
+    color: green;
+    display: block;
+}
+
+.calc_input {
+    background-color: black;
+    color: green;
+    display: block;
+}
+
+.button_container {
+    height: 75%;
+    display: block;
+    margin: 1rem;
+}
+
+.buttons {
+    width: 100%;
     display: grid;
-    gap: 1rem;
-    margin: 10px;
     grid-template-columns: repeat(4, 1fr);
 }
 
 .buttons button {
+    height: auto;
+    width: auto;
+    font-size: 2rem;
+    box-shadow: none;
+    border: none;
     border-radius: 40px;
     background-color: rgb(70, 70, 70);
 }
 
 button.equals {
+    height: auto;
+    width: auto;
     grid-column: 3 / 5;
 }
 

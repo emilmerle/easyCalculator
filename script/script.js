@@ -9,17 +9,29 @@ calc_buttons.addEventListener("click", (event) => {
     //if (!event.target.closest("button")) { return; }
 
     if (target.className == "digits") {
-        if (((calc_input.innerText[calc_input.innerText.length - 2] == "/")
-            || (calc_input.innerText[calc_input.innerText.length - 2] == "%")) 
+        if (((calc_input.innerText[calc_input.innerText.length - 1] == "/")
+            || (calc_input.innerText[calc_input.innerText.length - 1] == "%")) 
             && target.value == "0") {
             calc_result.innerText = "nice try";
+        } else if ((calc_input.innerText[calc_input.innerText.length - 1] == "+")
+                    || (calc_input.innerText[calc_input.innerText.length - 1] == "-")
+                    || (calc_input.innerText[calc_input.innerText.length - 1] == "/")
+                    || (calc_input.innerText[calc_input.innerText.length - 1] == "*")
+                    || (calc_input.innerText[calc_input.innerText.length - 1] == "%")) {
+            calc_input.innerText += " " + target.value;
         } else {
             calc_input.innerText += target.value;
         }
     }
 
     else if(target.className == "operator") {
-        calc_input.innerText += " " + target.value + " ";
+        if ((calc_input.innerText[calc_input.innerText.length-1] != "+")
+                && (calc_input.innerText[calc_input.innerText.length-1] != "-")
+                && (calc_input.innerText[calc_input.innerText.length-1] != "/")
+                && (calc_input.innerText[calc_input.innerText.length-1] != "%")
+                && (calc_input.innerText[calc_input.innerText.length-1] != "*")) {
+            calc_input.innerText += " " + target.value;
+        }
     }
 
     else if (target.className == "decimal") {
@@ -27,7 +39,7 @@ calc_buttons.addEventListener("click", (event) => {
     }
 
     else if (target.className == "clear") {
-        calc_input.innerText = "";
+        calc_input.innerText = "0";
         calc_result.innerText = 0;
     }
 
@@ -36,7 +48,7 @@ calc_buttons.addEventListener("click", (event) => {
             && calc_input.innerText[calc_input.innerText.length-1] != " ") {
             var result = calculate_expression(split_expression(calc_input.innerText));
             calc_result.innerText = result;
-            calc_input.innerText = "";
+            calc_input.innerText = "0";
         }
     }
 })
